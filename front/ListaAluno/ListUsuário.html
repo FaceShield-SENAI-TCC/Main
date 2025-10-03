@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Empréstimos - Usuários</title>
+    <script src="./JS/ListaUsuario.js" defer></script>
+    <link rel="stylesheet" href="./CSS/ListaUser.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="logo">
+          <h2><i class="fas fa-user"></i> Controle de Usuários</h2>
+        </div>
+        <div
+          class="menu-item active"
+          onclick="window.location.href='../ListaAluno/ListUsuário.html'"
+        >
+          <i class="fas fa-user"></i> Usuários
+        </div>
+
+        <div
+          class="menu-item"
+          onclick="window.location.href='../VerEmprestimo/Emprestimos.html'"
+        >
+          <i class="fas fa-clipboard-list"></i> Empréstimos
+        </div>
+
+        <div
+          class="menu-item"
+          onclick="window.location.href='../ListaFerramentas/ListaFerramentas.html'"
+        >
+          <i class="fas fa-toolbox"></i> Ferramentas
+        </div>
+
+        <div
+          class="menu-item"
+          onclick="window.location.href='../Locais/local.html'"
+        >
+          <i class="fas fa-map-marker-alt"></i> Locais
+        </div>
+
+        <div
+          class="menu-item"
+          onclick="window.location.href='../PostEmp/PostEmp.html'"
+        >
+          <i class="fas fa-plus-circle"></i> Novo Empréstimo
+        </div>
+        <div class="menu-item" onclick="window.location.href='../index.html'">
+          <i class="fas fa-sign-out-alt"></i> Sair
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="header">
+          <h1 class="page-title"><i class="fas fa-user"></i> Usuários</h1>
+          <button
+            class="logout-btn"
+            onclick="window.location.href='../MenuProf/Menu.html'"
+          >
+            <i class="fas fa-sign-out-alt"></i> Sair para Menu
+          </button>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="openAddStudentModal()">
+            <i class="fas fa-plus"></i> Adicionar Usuário
+          </button>
+        </div>
+
+        <!-- Filtros e Pesquisa -->
+        <div class="search-section">
+          <div class="search-group">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Pesquisar Usuário..."
+              oninput="searchStudents()"
+            />
+          </div>
+        </div>
+
+        <div style="overflow-x: auto">
+          <table class="students-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Turma</th>
+                <th>Tipo de Usuário</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="students-table-body">
+              <!-- Dados serão carregados via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="student-modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id="modal-title">Adicionar Novo Usuário</h2>
+              <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form id="student-form">
+                <input type="hidden" id="student-id" />
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">Nome</label>
+                    <input
+                      type="text"
+                      id="first-name"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Sobrenome</label>
+                    <input
+                      type="text"
+                      id="last-name"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="class">Turma</label>
+                    <select id="class" class="form-control" required>
+                      <option value="">Selecione uma turma</option>
+                      <option value="Mecânico de Manutenção">Mecânico de Manutenção</option>
+                      <option value="Mecânico de Usinagem">Mecânico de Usinagem</option>
+                      <option value="Desenvolvimento de Sistema">Desenvolvimento de Sistema</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-type">Tipo de Usuário</label>
+                    <input
+                      type="text"
+                      id="user-type"
+                      class="form-control"
+                      readonly
+                      disabled
+                      style="background-color: #f5f5f5; cursor: not-allowed"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" onclick="closeModal()">Cancelar</button>
+              <button class="btn btn-primary" onclick="saveStudent()">
+                Salvar Usuário
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
