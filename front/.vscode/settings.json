@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bfc0475c-bf15-42ae-a516-35e7308a3313/resourceGroups/FaceShield/providers/Microsoft.Web/sites/FaceShieldWeb",
+    "appService.deploySubpath": "."
+}
