@@ -34,9 +34,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Adicionado para permitir scroll interno se necessário */
-  overflow-y: auto;
-  max-height: 90vh;
 }
 
 .page-header {
@@ -85,7 +82,7 @@ body {
   border: 3px solid var(--primary-color);
   border-radius: 50%;
   overflow: hidden;
-  background: #0a0e14 url("./Recursos/FotoHolograma.webp") center/cover;
+  background: #0a0e14 url("../../Recursos/ImagemRecon.png") center/cover;
   transform-style: preserve-3d;
 }
 

@@ -61,7 +61,7 @@ function iniciarReconhecimentoFacial() {
     if (!isProcessing) {
       capturarEReconhecer();
     }
-  }, 3000);
+  }, 10000);
 }
 
 function capturarEReconhecer() {
@@ -90,39 +90,46 @@ function reconhecerFace(imageData) {
   toggleLoading(true);
 
   // Código real para enviar para a API (descomente quando a API estiver disponível)
-  
-            fetch('http://localhost:5005/face-login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ imagem: imageData })
-            })
-            .then(response => response.json())
-            .then(data => {
-                toggleLoading(false);
-                isProcessing = false;
-                
-                if (data.authenticated) {
-                    mensagem.textContent = `Bem-vindo, ${data.user}!`;
-                    showFeedback("success", `Login realizado com sucesso! Bem-vindo, ${data.user}.`);
-                    
-                    // Redirecionar após login bem-sucedido
-                    setTimeout(() => {
-                        window.location.href = "../ListaAluno/ListUsuário.html";
-                    }, 2000);
-                } else {
-                    mensagem.textContent = data.message || "Usuário não reconhecido. Tente novamente.";
-                    showFeedback("error", data.message || "Usuário não reconhecido. Por favor, tente novamente.");
-                }
-            })
-            .catch(error => {
-                toggleLoading(false);
-                isProcessing = false;
-                console.error('Erro:', error);
-                mensagem.textContent = "Erro no reconhecimento. Tente novamente.";
-                showFeedback("error", "Erro de conexão com o servidor. Tente novamente.");
-            });
+
+  fetch("http://localhost:5005/face-login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ imagem: imageData }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      toggleLoading(false);
+      isProcessing = false;
+
+      if (data.authenticated) {
+        mensagem.textContent = `Bem-vindo, ${data.user}!`;
+        showFeedback(
+          "success",
+          `Login realizado com sucesso! Bem-vindo, ${data.user}.`
+        );
+
+        // Redirecionar após login bem-sucedido
+        setTimeout(() => {
+          window.location.href = "../ListaAluno/ListUsuário.html";
+        });
+      } else {
+        mensagem.textContent =
+          data.message || "Usuário não reconhecido. Tente novamente.";
+        showFeedback(
+          "error",
+          data.message || "Usuário não reconhecido. Por favor, tente novamente."
+        );
+      }
+    })
+    .catch((error) => {
+      toggleLoading(false);
+      isProcessing = false;
+      console.error("Erro:", error);
+      mensagem.textContent = "Erro no reconhecimento. Tente novamente.";
+      showFeedback("error", "Erro de conexão com o servidor. Tente novamente.");
+    });
 }
 
 // Iniciar a câmera quando a página carregar

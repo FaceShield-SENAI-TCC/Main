@@ -54,17 +54,18 @@ body {
 .buttonVoltar {
   text-decoration: none;
   color: white;
-  background-color: rgba(0, 224, 255, 0.2);
+  background-color: red;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
-  border: 1px solid var(--primary-color);
+  border: 1px solid red;
   transition: all 0.3s ease;
+  box-shadow: red;
 }
 
 .buttonVoltar:hover {
-  background-color: rgba(0, 224, 255, 0.4);
-  box-shadow: var(--neon-shadow);
+  background-color: rgb(204, 32, 32);
+  box-shadow: red;
 }
 
 h1 {
@@ -81,6 +82,7 @@ h1 {
   width: 100%;
   max-width: 600px;
   padding: 1rem;
+  padding-top: 10rem;
 }
 
 .face-scan-widget {
@@ -152,23 +154,25 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 2rem;
+  margin-right: 40%;
+  gap: 20%;
 }
 
 .buttonProfessor {
   text-decoration: none;
   color: white;
-  background-color: rgba(255, 77, 125, 0.2);
+  background-color: rgba(18, 63, 210, 0.613);
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
-  border: 1px solid var(--accent-color);
+  border: 1px solid blue;
   transition: all 0.3s ease;
+  box-shadow: 0 0 15px blue;
 }
 
 .buttonProfessor:hover {
-  background-color: rgba(255, 77, 125, 0.4);
-  box-shadow: 0 0 15px var(--accent-color);
+  background-color: rgba(0, 17, 255, 0.987);
+  box-shadow: 0 0 15px rgb(0, 4, 255);
 }
 
 .feedback {
