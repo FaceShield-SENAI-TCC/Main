@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       session_id: captureSessionId,
     });
 
-    scanInstruction.textContent = "Siga as instruções...";
+    scanInstruction.textContent = "Processando...";
   });
 
   socket.on("connect_error", (err) => {

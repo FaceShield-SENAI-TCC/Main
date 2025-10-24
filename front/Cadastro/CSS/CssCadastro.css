@@ -40,17 +40,17 @@ body {
 .buttonVoltar {
   text-decoration: none;
   color: white;
-  background-color: rgba(0, 224, 255, 0.2);
+  background-color: red;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--accent-color);
   transition: all 0.3s ease;
 }
 
 .buttonVoltar:hover {
-  background-color: rgba(0, 224, 255, 0.4);
-  box-shadow: var(--neon-shadow);
+  background-color: rgb(194, 21, 21);
+  box-shadow: var(--accent-color);
 }
 
 .main-content {

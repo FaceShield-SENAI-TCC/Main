@@ -517,19 +517,25 @@ body {
 }
 
 .botaoVoltar {
-  width: 100%;
-  display: flex;
-  justify-content: right;
-  margin-top: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
 .buttonVoltar {
   text-decoration: none;
-  color: black;
-  background-color: white;
+  color: white;
+  background: red;
+  border: 2px solid red;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.buttonVoltar:hover {
+  background: rgba(255, 0, 0, 0.853);
 }
 @keyframes logo-float {
   0%,
