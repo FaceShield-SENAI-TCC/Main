@@ -166,7 +166,7 @@ async function finalizarEmprestimo(loanId) {
     showFeedback(`Erro ao registrar devolução: ${error.message}`);
   }
 }
-console.log = id_local;
+// console.log = id_local;
 // Função para renderizar a tabela
 function renderTable() {
   loansTableBody.innerHTML = "";
