@@ -1,24 +1,18 @@
-FROM eclipse-temurin:21-jdk-alpine
+FROM maven:3.9-eclipse-temurin-21-alpine AS builder
 
 WORKDIR /app
 
-# Copiar primeiro os arquivos essenciais
-COPY pom.xml .
-COPY mvnw .
-RUN chmod +x mvnw
+# Copiar tudo
+COPY . .
 
-# Tentar copiar .mvn se existir, se não, continuar
-RUN if [ -d ".mvn" ]; then COPY .mvn .mvn; fi
+# Compilar com Maven (não usa mvnw)
+RUN mvn clean package -DskipTests
 
-# Baixar dependências
-RUN ./mvnw dependency:go-offline -B || true
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
 
-# Copiar código fonte
-COPY src ./src
-
-# Compilar
-RUN ./mvnw clean package -DskipTests
+# Copiar o JAR gerado
+COPY --from=builder /app/target/FaceShield_Back-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "target/FaceShield_Back-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
