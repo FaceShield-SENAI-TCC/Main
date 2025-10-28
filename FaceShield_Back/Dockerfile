@@ -2,23 +2,23 @@ FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /app
 
-# Copiar arquivos do Maven
-COPY .mvn .mvn
-COPY mvnw .
+# Copiar primeiro os arquivos essenciais
 COPY pom.xml .
+COPY mvnw .
+RUN chmod +x mvnw
 
-# Dar permissão de execução e baixar dependências
-RUN chmod +x mvnw && \
-    ./mvnw dependency:go-offline -B
+# Tentar copiar .mvn se existir, se não, continuar
+RUN if [ -d ".mvn" ]; then COPY .mvn .mvn; fi
+
+# Baixar dependências
+RUN ./mvnw dependency:go-offline -B || true
 
 # Copiar código fonte
 COPY src ./src
 
-# Compilar e criar o JAR
+# Compilar
 RUN ./mvnw clean package -DskipTests
 
-# Expor porta
 EXPOSE 8080
 
-# Comando para executar
 ENTRYPOINT ["java", "-jar", "target/FaceShield_Back-0.0.1-SNAPSHOT.jar"]
