@@ -27,9 +27,12 @@ const modalLocationShelf = document.getElementById("modal-location-shelf");
 const modalLocationCase = document.getElementById("modal-location-case");
 
 // URLs da API
-const EMPRESTIMOS_API = "http://localhost:8080/emprestimos/buscar";
-const FINALIZAR_EMPRESTIMO_API = "http://localhost:8080/emprestimos/finalizar";
-const FERRAMENTAS_API = "http://localhost:8080/ferramentas/buscar";
+const EMPRESTIMOS_API =
+  "https://faceshield-backend.onrender.com/emprestimos/buscar";
+const FINALIZAR_EMPRESTIMO_API =
+  "https://faceshield-backend.onrender.com/emprestimos/finalizar";
+const FERRAMENTAS_API =
+  "https://faceshield-backend.onrender.com/ferramentas/buscar";
 
 // Variáveis globais
 let currentPage = 1;

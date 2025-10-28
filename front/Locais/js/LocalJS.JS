@@ -1,7 +1,7 @@
-const API_URL = "http://localhost:8080/locais/buscar";
-const API_DELETE = "http://localhost:8080/locais/deletar";
-const API_POST = "http://localhost:8080/locais/novoLocal";
-const API_EDITAR = "http://localhost:8080/locais/editar";
+const API_URL = "https://faceshield-backend.onrender.com/locais/buscar";
+const API_DELETE = "https://faceshield-backend.onrender.com/locais/deletar";
+const API_POST = "https://faceshield-backend.onrender.com/locais/novoLocal";
+const API_EDITAR = "https://faceshield-backend.onrender.com/locais/editar";
 // Elementos DOM
 const locationsTableBody = document.getElementById("locations-table-body");
 const locationGrid = document.getElementById("location-grid");

@@ -21,14 +21,18 @@ const closeBtn = document.querySelector(".close-btn");
 const notification = document.getElementById("notification");
 const loadingOverlay = document.getElementById("loading-overlay");
 
-const Ferramenta_GET = "http://localhost:8080/ferramentas/buscar";
-const Ferramenta_POST = "http://localhost:8080/ferramentas/novaFerramenta";
-const Ferramenta_PUT = "http://localhost:8080/ferramentas/editar";
-const Ferramenta_DELETE = "http://localhost:8080/ferramentas/deletar";
+const Ferramenta_GET =
+  "https://faceshield-backend.onrender.com/ferramentas/buscar";
+const Ferramenta_POST =
+  "https://faceshield-backend.onrender.com/ferramentas/novaFerramenta";
+const Ferramenta_PUT =
+  "https://faceshield-backend.onrender.com/ferramentas/editar";
+const Ferramenta_DELETE =
+  "https://faceshield-backend.onrender.com/ferramentas/deletar";
 const Ferramenta_GET_BY_QRCODE =
-  "http://localhost:8080/ferramentas/buscarPorQrCode";
+  "https://faceshield-backend.onrender.com/ferramentas/buscarPorQrCode";
 
-const locais_get = "http://localhost:8080/locais/buscar";
+const locais_get = "https://faceshield-backend.onrender.com/locais/buscar";
 
 // QR Scanner - Modal e elementos
 const qrScannerModal = document.createElement("div");

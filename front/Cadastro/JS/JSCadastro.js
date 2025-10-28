@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const turmaInput = document.getElementById("turma");
   const viewCameraBtn = document.querySelector(".view-camera-btn");
 
-  const API_URL = "http://localhost:8080/usuarios/novoUsuario";
+  const API_URL =
+    "https://faceshield-backend.onrender.com/usuarios/novoUsuario";
   const CAPTURE_API_URL = "http://localhost:7001";
 
   let isScanning = false;
